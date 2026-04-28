@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Proyecto CRUD Profesional</title>
+<title>Evidencia 3 - Proyecto</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
@@ -12,93 +12,110 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins', sans-serif;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
-    background:#0f172a;
+    background: linear-gradient(135deg, #0f2027, #1c2b36, #2c5364);
     color:white;
+    padding:40px;
 }
 
-/* NAVBAR */
-nav{
-    background:#020617;
-    padding:15px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-nav h2{
-    color:#38bdf8;
-}
-
-nav a{
-    color:white;
-    margin-left:15px;
-    text-decoration:none;
-}
-
-nav a:hover{
-    color:#38bdf8;
-}
-
-/* CONTAINER */
 .container{
     max-width:1100px;
     margin:auto;
-    padding:20px;
 }
 
-/* CARDS */
+h1{
+    text-align:center;
+    margin-bottom:30px;
+    font-size:2.5em;
+}
+
+.section{
+    margin-bottom:30px;
+}
+
 .card{
-    background:#1e293b;
+    background: rgba(255,255,255,0.06);
     padding:20px;
     border-radius:15px;
-    margin-top:20px;
+    backdrop-filter: blur(10px);
+    margin-bottom:15px;
+    transition:0.3s;
 }
 
-/* INPUTS */
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.highlight{
+    color:#00d4ff;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap:15px;
+}
+
+/* CRUD */
 input{
     padding:10px;
-    margin:5px;
     border-radius:8px;
     border:none;
+    width:100%;
+    margin-bottom:10px;
 }
 
 button{
     padding:10px;
     border:none;
     border-radius:8px;
-    background:#38bdf8;
+    background:#00d4ff;
     cursor:pointer;
+    font-weight:bold;
 }
 
 button:hover{
-    background:#0ea5e9;
+    background:#00a2d6;
 }
 
 /* ITEMS */
 .item{
-    background:#334155;
-    margin-top:15px;
+    background: rgba(255,255,255,0.08);
     padding:15px;
     border-radius:10px;
-}
-
-/* CARRUSEL */
-.carousel img{
-    width:250px;
-    border-radius:10px;
-}
-
-/* SEARCH */
-#search{
-    width:100%;
     margin-top:10px;
 }
 
-/* FOOTER */
+/* CARRUSEL */
+.carousel{
+    position:relative;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.carousel a{
+    display:block;
+    background:#111;
+    padding:20px;
+    border-radius:10px;
+    text-decoration:none;
+    color:white;
+}
+
+.carousel button{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:#00d4ff;
+}
+
+.prev{ left:5px; }
+.next{ right:5px; }
+
 .footer{
     text-align:center;
     margin-top:20px;
@@ -109,141 +126,146 @@ button:hover{
 
 <body>
 
-<!-- NAVBAR -->
-<nav>
-    <h2>CRUD Proyecto</h2>
-    <div>
-        <a href="#">Inicio</a>
-        <a href="#crud">CRUD</a>
-    </div>
-</nav>
-
 <div class="container">
 
-<!-- PRESENTACION -->
-<div class="card">
 <h1>Proyecto Web - Evidencia 3</h1>
-<p>Desarrollo de un sistema CRUD para gestionar componentes y mantenimientos de computadoras.</p>
 
-<p><b>Nombre:</b> Daniel Reyes Martínez</p>
-<p><b>Matrícula:</b> AL05053857</p>
-<p><b>Profesor:</b> Marco Horacio Moreno González</p>
+<div class="section grid">
+    <div class="card">
+        <h2>Descripción</h2>
+        <p>Desarrollo de una aplicación web con CRUD para gestionar componentes y mantenimientos.</p>
+    </div>
+
+    <div class="card">
+        <h2>Estudiante</h2>
+        <p><span class="highlight">Nombre:</span> Daniel Reyes Martínez</p>
+        <p><span class="highlight">Matrícula:</span> AL05053857</p>
+        <p><span class="highlight">Profesor:</span> Marco Horacio Moreno González</p>
+    </div>
+
+    <div class="card">
+        <h2>Tecnologías</h2>
+        <p>HTML, CSS, JavaScript (LocalStorage)</p>
+    </div>
 </div>
 
-<!-- BUSCADOR -->
-<input type="text" id="search" placeholder="Buscar componente..." onkeyup="render()">
+<!-- CARRUSEL -->
+<div class="card">
+    <h2>Recursos Visuales</h2>
+
+    <div class="carousel">
+        <a id="carouselLink" href="#" target="_blank">Abrir recurso</a>
+        <button class="prev" onclick="prev()">◀</button>
+        <button class="next" onclick="next()">▶</button>
+    </div>
+</div>
 
 <!-- CRUD -->
-<div class="card" id="crud">
+<div class="card">
+    <h2>CRUD - Componentes</h2>
 
-<h2>Gestión de Componentes</h2>
+    <div class="grid">
+        <input type="text" id="name" placeholder="Nombre">
+        <input type="text" id="type" placeholder="Tipo">
+        <input type="text" id="status" placeholder="Estado">
+    </div>
 
-<input type="text" id="name" placeholder="Nombre">
-<input type="text" id="type" placeholder="Tipo">
-<input type="text" id="status" placeholder="Estado">
+    <button onclick="addItem()">Agregar</button>
 
-<button onclick="addItem()">Agregar</button>
-
-<div id="list"></div>
-
+    <div id="list"></div>
 </div>
 
 <div class="footer">
-<p>Evidencia 3 - Proyecto Web</p>
+    Evidencia 3 - Proyecto Web
 </div>
 
 </div>
 
 <script>
-let items = [
-{
-name:"Tarjeta gráfica",
-type:"Hardware",
-status:"Funcional",
-images:[
-"https://cdn.cloudflare.steamstatic.com/steam/apps/3010850/header.jpg",
-"https://cdn.cloudflare.steamstatic.com/steam/apps/3010850/capsule_616x353.jpg"
-]
-}
+// CARRUSEL LINKS
+const links = [
+"https://store.steampowered.com/app/3010850/Gears_of_War_EDay/?l=spanish",
+"https://ula.edu.mx/oferta-academica/licenciatura/ingenieria-desarrollo-de-software",
+"https://uveg.edu.mx/info-id",
+"https://www.reddit.com/r/gamedev/comments/1nwup4t/unity_has_a_critical_security_issue_affecting_all/?tl=es-419"
 ];
 
+let current = 0;
+
+function show(){
+    let link = document.getElementById("carouselLink");
+    link.href = links[current];
+    link.innerText = links[current];
+}
+
+function next(){
+    current = (current + 1) % links.length;
+    show();
+}
+
+function prev(){
+    current = (current - 1 + links.length) % links.length;
+    show();
+}
+
+show();
+
+// CRUD
+let items = JSON.parse(localStorage.getItem("items")) || [];
+
 function save(){
-localStorage.setItem("items", JSON.stringify(items));
-}
-
-function addItem(){
-let name = document.getElementById("name").value;
-let type = document.getElementById("type").value;
-let status = document.getElementById("status").value;
-
-if(!name || !type || !status){
-alert("Completa todos los campos");
-return;
-}
-
-items.push({
-name,
-type,
-status,
-images:[
-"https://cdn.cloudflare.steamstatic.com/steam/apps/3010850/header.jpg",
-"https://cdn.cloudflare.steamstatic.com/steam/apps/3010850/capsule_616x353.jpg"
-]
-});
-
-save();
-render();
-}
-
-function deleteItem(i){
-items.splice(i,1);
-save();
-render();
-}
-
-function nextImage(i){
-let item = items[i];
-item.current = (item.current || 0) + 1;
-if(item.current >= item.images.length) item.current = 0;
-render();
-}
-
-function prevImage(i){
-let item = items[i];
-item.current = (item.current || 0) - 1;
-if(item.current < 0) item.current = item.images.length-1;
-render();
+    localStorage.setItem("items", JSON.stringify(items));
 }
 
 function render(){
-let list = document.getElementById("list");
-let search = document.getElementById("search").value.toLowerCase();
+    let list = document.getElementById("list");
+    list.innerHTML = "";
 
-list.innerHTML="";
-
-items.forEach((item,i)=>{
-
-if(item.name.toLowerCase().includes(search)){
-
-let current = item.current || 0;
-
-list.innerHTML += `
-<div class="item">
-<h3>${item.name}</h3>
-<p>Tipo: ${item.type}</p>
-<p>Estado: ${item.status}</p>
-
-<div class="carousel">
-<img src="${item.images[current]}"><br>
-<button onclick="prevImage(${i})">◀</button>
-<button onclick="nextImage(${i})">▶</button>
-</div>
-
-<button onclick="deleteItem(${i})">Eliminar</button>
-</div>
-`;
+    items.forEach((item,index)=>{
+        list.innerHTML += `
+        <div class="item">
+            <strong>${item.name}</strong><br>
+            Tipo: ${item.type}<br>
+            Estado: ${item.status}<br><br>
+            <button onclick="editItem(${index})">Editar</button>
+            <button onclick="deleteItem(${index})">Eliminar</button>
+        </div>`;
+    });
 }
-});
+
+function addItem(){
+    let name = document.getElementById("name").value;
+    let type = document.getElementById("type").value;
+    let status = document.getElementById("status").value;
+
+    if(!name || !type || !status){
+        alert("Completa todos los campos");
+        return;
+    }
+
+    items.push({name,type,status});
+    save();
+    render();
+
+    document.getElementById("name").value="";
+    document.getElementById("type").value="";
+    document.getElementById("status").value="";
+}
+
+function deleteItem(index){
+    items.splice(index,1);
+    save();
+    render();
+}
+
+function editItem(index){
+    let item = items[index];
+
+    document.getElementById("name").value = item.name;
+    document.getElementById("type").value = item.type;
+    document.getElementById("status").value = item.status;
+
+    deleteItem(index);
 }
 
 render();
