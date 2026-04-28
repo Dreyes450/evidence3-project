@@ -1,138 +1,241 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evidence 3 - Project</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evidencia 3 - Proyecto</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-        body {
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            color: #fff;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .container {
-            width: 90%;
-            max-width: 900px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-            animation: fadeIn 1.5s ease;
-        }
+.container {
+    width: 90%;
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    animation: fadeIn 1.5s ease;
+}
 
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 2.5em;
-        }
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
 
-        h2 {
-            margin-top: 20px;
-            color: #00d4ff;
-        }
+h2 {
+    margin-top: 20px;
+    color: #00d4ff;
+}
 
-        p, li {
-            margin-top: 10px;
-            line-height: 1.6;
-        }
+p, li {
+    margin-top: 10px;
+    line-height: 1.6;
+}
 
-        ul {
-            margin-left: 20px;
-        }
+ul {
+    margin-left: 20px;
+}
 
-        .card {
-            background: rgba(255,255,255,0.08);
-            padding: 15px;
-            border-radius: 15px;
-            margin-top: 15px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+.card {
+    background: rgba(255,255,255,0.08);
+    padding: 15px;
+    border-radius: 15px;
+    margin-top: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-        }
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
 
-        .footer {
-            margin-top: 25px;
-            text-align: center;
-            font-size: 0.9em;
-            opacity: 0.8;
-        }
+.highlight {
+    color: #00d4ff;
+    font-weight: 500;
+}
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+/* CRUD */
+input {
+    padding: 8px;
+    margin: 5px;
+    border-radius: 8px;
+    border: none;
+    width: 30%;
+}
 
-        .highlight {
-            color: #00d4ff;
-            font-weight: 500;
-        }
-    </style>
+button {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #00d4ff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #00a2d6;
+}
+
+.item {
+    background: rgba(255,255,255,0.1);
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
 </head>
 
 <body>
 
 <div class="container">
 
-    <h1>My First Web Project</h1>
+    <h1>Proyecto Web - Evidencia 3</h1>
 
     <div class="card">
-        <h2>Description</h2>
+        <h2>Descripción</h2>
         <p>
-            This project consists of the creation and deployment of a simple web page using HTML. 
-            The main objective is to demonstrate the ability to structure content and publish it 
-            on a server using GitHub Pages.
+            Este proyecto consiste en el desarrollo y publicación de una página web utilizando HTML, CSS y JavaScript.
+            El objetivo principal es demostrar la capacidad de crear una interfaz funcional e implementar un sistema CRUD
+            para la gestión de componentes y mantenimientos de computadoras.
         </p>
     </div>
 
     <div class="card">
-        <h2>Student Information</h2>
-        <p><span class="highlight">Name:</span> Daniel Reyes Martínez</p>
-        <p><span class="highlight">Student ID:</span> AL05053857</p>
-        <p><span class="highlight">Instructor:</span> Marco Horacio Moreno González</p>
+        <h2>Información del Estudiante</h2>
+        <p><span class="highlight">Nombre:</span> Daniel Reyes Martínez</p>
+        <p><span class="highlight">Matrícula:</span> AL05053857</p>
+        <p><span class="highlight">Profesor:</span> Marco Horacio Moreno González</p>
     </div>
 
     <div class="card">
-        <h2>Team Members</h2>
+        <h2>Integrantes</h2>
         <ul>
             <li>Daniel Reyes Martínez</li>
         </ul>
     </div>
 
     <div class="card">
-        <h2>Technologies Used</h2>
-        <p>HTML5 and basic CSS for styling and layout design.</p>
+        <h2>Tecnologías Utilizadas</h2>
+        <p>HTML5, CSS3 y JavaScript con almacenamiento local (LocalStorage).</p>
+    </div>
+
+    <!-- CRUD -->
+    <div class="card">
+        <h2>CRUD: Componentes y Mantenimientos</h2>
+
+        <input type="text" id="name" placeholder="Nombre del componente">
+        <input type="text" id="type" placeholder="Tipo (Hardware/Software)">
+        <input type="text" id="status" placeholder="Estado">
+
+        <br><br>
+        <button onclick="addItem()">Agregar</button>
+
+        <div id="list"></div>
     </div>
 
     <div class="footer">
-        <p>Evidence 3 - Web Project Deployment</p>
+        <p>Evidencia 3 - Implementación de Proyecto Web</p>
     </div>
 
 </div>
+
+<script>
+let items = JSON.parse(localStorage.getItem("items")) || [];
+
+function save(){
+    localStorage.setItem("items", JSON.stringify(items));
+}
+
+function render(){
+    let list = document.getElementById("list");
+    list.innerHTML = "";
+
+    items.forEach((item, index)=>{
+        list.innerHTML += `
+        <div class="item">
+            <strong>${item.name}</strong><br>
+            Tipo: ${item.type}<br>
+            Estado: ${item.status}<br>
+            <button onclick="editItem(${index})">Editar</button>
+            <button onclick="deleteItem(${index})">Eliminar</button>
+        </div>`;
+    });
+}
+
+function addItem(){
+    let name = document.getElementById("name").value;
+    let type = document.getElementById("type").value;
+    let status = document.getElementById("status").value;
+
+    if(!name || !type || !status){
+        alert("Por favor completa todos los campos");
+        return;
+    }
+
+    items.push({name, type, status});
+    save();
+    render();
+
+    document.getElementById("name").value = "";
+    document.getElementById("type").value = "";
+    document.getElementById("status").value = "";
+}
+
+function deleteItem(index){
+    items.splice(index,1);
+    save();
+    render();
+}
+
+function editItem(index){
+    let item = items[index];
+
+    document.getElementById("name").value = item.name;
+    document.getElementById("type").value = item.type;
+    document.getElementById("status").value = item.status;
+
+    deleteItem(index);
+}
+
+render();
+</script>
 
 </body>
 </html>
