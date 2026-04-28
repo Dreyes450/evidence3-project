@@ -90,31 +90,46 @@ button:hover{
     margin-top:10px;
 }
 
-/* CARRUSEL */
-.carousel{
+/* LINKS */
+.links{
+    list-style:none;
+}
+
+.links li{
+    margin-top:10px;
+}
+
+.links a{
+    color:#00d4ff;
+    text-decoration:none;
+}
+
+.links a:hover{
+    text-decoration:underline;
+}
+
+/* CARRUSEL IMÁGENES */
+.carousel-img{
     position:relative;
     text-align:center;
-    margin-bottom:20px;
 }
 
-.carousel a{
-    display:block;
-    background:#111;
-    padding:20px;
-    border-radius:10px;
-    text-decoration:none;
-    color:white;
+.carousel-img img{
+    width:100%;
+    max-height:300px;
+    object-fit:cover;
+    border-radius:12px;
+    transition:0.5s;
 }
 
-.carousel button{
+.carousel-img button{
     position:absolute;
     top:50%;
     transform:translateY(-50%);
-    background:#00d4ff;
 }
 
-.prev{ left:5px; }
-.next{ right:5px; }
+.prev{ left:10px; }
+.next{ right:10px; }
 
 .footer{
     text-align:center;
@@ -149,14 +164,25 @@ button:hover{
     </div>
 </div>
 
-<!-- CARRUSEL -->
+<!-- LINKS -->
 <div class="card">
-    <h2>Recursos Visuales</h2>
+    <h2>Recursos (Links)</h2>
+    <ul class="links">
+        <li><a href="https://store.steampowered.com/app/3010850/Gears_of_War_EDay/?l=spanish" target="_blank">Gears of War E-Day</a></li>
+        <li><a href="https://ula.edu.mx/oferta-academica/licenciatura/ingenieria-desarrollo-de-software" target="_blank">Ingeniería en Software</a></li>
+        <li><a href="https://uveg.edu.mx/info-id" target="_blank">UVEG Información</a></li>
+        <li><a href="https://www.reddit.com/r/gamedev/comments/1nwup4t/unity_has_a_critical_security_issue_affecting_all/?tl=es-419" target="_blank">Noticia Unity</a></li>
+    </ul>
+</div>
 
-    <div class="carousel">
-        <a id="carouselLink" href="#" target="_blank">Abrir recurso</a>
-        <button class="prev" onclick="prev()">◀</button>
-        <button class="next" onclick="next()">▶</button>
+<!-- CARRUSEL IMÁGENES -->
+<div class="card">
+    <h2>Galería de Imágenes</h2>
+
+    <div class="carousel-img">
+        <img id="imgCarousel" src="">
+        <button class="prev" onclick="prevImg()">◀</button>
+        <button class="next" onclick="nextImg()">▶</button>
     </div>
 </div>
 
@@ -182,33 +208,31 @@ button:hover{
 </div>
 
 <script>
-// CARRUSEL LINKS
-const links = [
-"https://store.steampowered.com/app/3010850/Gears_of_War_EDay/?l=spanish",
-"https://ula.edu.mx/oferta-academica/licenciatura/ingenieria-desarrollo-de-software",
-"https://uveg.edu.mx/info-id",
-"https://www.reddit.com/r/gamedev/comments/1nwup4t/unity_has_a_critical_security_issue_affecting_all/?tl=es-419"
+// IMÁGENES
+const images = [
+"https://uveg.edu.mx/images/materias/IDS/IngSoft.jpg",
+"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3010850/capsule_616x353.jpg?t=1774394049",
+"https://mx-media.hptiendaenlinea.com/magefan_blog/Toby_Pederson_Tracer_HD_access_4094_RGB_M2178154.jpg",
+"https://i.blogs.es/e96737/nissan-sentra-2024-mexico-prueba-video_/1366_2000.jpg"
 ];
 
-let current = 0;
+let imgIndex = 0;
 
-function show(){
-    let link = document.getElementById("carouselLink");
-    link.href = links[current];
-    link.innerText = links[current];
+function showImg(){
+    document.getElementById("imgCarousel").src = images[imgIndex];
 }
 
-function next(){
-    current = (current + 1) % links.length;
-    show();
+function nextImg(){
+    imgIndex = (imgIndex + 1) % images.length;
+    showImg();
 }
 
-function prev(){
-    current = (current - 1 + links.length) % links.length;
-    show();
+function prevImg(){
+    imgIndex = (imgIndex - 1 + images.length) % images.length;
+    showImg();
 }
 
-show();
+showImg();
 
 // CRUD
 let items = JSON.parse(localStorage.getItem("items")) || [];
