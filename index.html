@@ -2,23 +2,137 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evidence 3 - Project</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            animation: fadeIn 1.5s ease;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #00d4ff;
+        }
+
+        p, li {
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.08);
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        .footer {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .highlight {
+            color: #00d4ff;
+            font-weight: 500;
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Project Name: My First Web Project</h1>
+<div class="container">
 
-    <h2>Description</h2>
-    <p>This project is about... (describe your project here)</p>
+    <h1>My First Web Project</h1>
 
-    <h2>Team Members</h2>
-    <ul>
-        <li>Daniel Reyes</li>
-        <li>Member 2</li>
-    </ul>
+    <div class="card">
+        <h2>Description</h2>
+        <p>
+            This project consists of the creation and deployment of a simple web page using HTML. 
+            The main objective is to demonstrate the ability to structure content and publish it 
+            on a server using GitHub Pages.
+        </p>
+    </div>
 
-    <h2>Technologies Used</h2>
-    <p>HTML, CSS, etc.</p>
+    <div class="card">
+        <h2>Student Information</h2>
+        <p><span class="highlight">Name:</span> Daniel Reyes Martínez</p>
+        <p><span class="highlight">Student ID:</span> AL05053857</p>
+        <p><span class="highlight">Instructor:</span> Marco Horacio Moreno González</p>
+    </div>
+
+    <div class="card">
+        <h2>Team Members</h2>
+        <ul>
+            <li>Daniel Reyes Martínez</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Technologies Used</h2>
+        <p>HTML5 and basic CSS for styling and layout design.</p>
+    </div>
+
+    <div class="footer">
+        <p>Evidence 3 - Web Project Deployment</p>
+    </div>
+
+</div>
 
 </body>
 </html>
